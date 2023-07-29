@@ -1,19 +1,5 @@
-// import React from 'react';
-// import Header from "../../../Shared/Header/Header";
-
-// const MyJobs = () => {
-//     return (
-//         <div>
-//             <Header></Header>
-//         </div>
-//     );
-// };
-
-// export default MyJobs;
 import React, { useState } from 'react';
 import { FaCog } from 'react-icons/fa';
-import { Link, Outlet } from "react-router-dom";
-
 
 const MyJobs = () => {
     const [selectedOption, setSelectedOption] = useState('none');
@@ -35,12 +21,18 @@ const MyJobs = () => {
             <option value="Full Stack Developer">Full Stack Developer</option>
         </select>
     </>
+    //for tab
+    const [toggleState, setToggleState] = useState(1);
+
+    const toggleTab = (index) => {
+        setToggleState(index);
+    };
+
 
     return (
-        <div>
-
+        <div className=''>
             <div className='p-8'>
-                <div className="navbar bg-base-100 rounded">
+                <div className="navbar bg-base-100 rounded w-full overflow-x-auto">
                     <div className="">
                         <div className="dropdown">
                             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -120,11 +112,141 @@ const MyJobs = () => {
                     </div>
                 </div>
             </div>
-            <div className='p-5'>
+            <div className='p-5 pb-12'>
                 {
-                    selectedOption && selectedOption === 'Frontend Developer' && <div className='bg-white h-[200px] p-5'>
-                        <h2>form</h2>
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full " />
+                    selectedOption && selectedOption === 'Frontend Developer' && <div className='bg-blue-100  p-5'>
+                        <div className="container">
+                            <div className="bloc-tabs w-full overflow-x-auto">
+                                <button
+                                    className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
+                                    onClick={() => toggleTab(1)}
+                                >
+                                    Job Mangement
+                                </button>
+                                <button
+                                    className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
+                                    onClick={() => toggleTab(2)}
+                                >
+                                    JD rewrite
+                                </button>
+                                <button
+                                    className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
+                                    onClick={() => toggleTab(3)}
+                                >
+                                    R3achout
+                                </button>
+                                <button
+                                    className={toggleState === 4 ? "tabs active-tabs" : "tabs"}
+                                    onClick={() => toggleTab(4)}
+                                >
+                                    Search
+                                </button>
+                                <button
+                                    className={toggleState === 5 ? "tabs active-tabs" : "tabs"}
+                                    onClick={() => toggleTab(5)}
+                                >
+                                    Intake
+                                </button>
+                                <button
+                                    className={toggleState === 6 ? "tabs active-tabs" : "tabs"}
+                                    onClick={() => toggleTab(6)}
+                                >
+                                    Interview
+                                </button>
+                            </div>
+
+                            <div className="content-tabs">
+                                <div
+                                    className={toggleState === 1 ? "content  active-content" : "content"}
+                                >
+                                    <div className='grid md:grid-cols-2 gap-4 my-4'>
+                                        <div>
+                                            <div class="mb-4">
+                                                <label className="block text-gray-700 text-sm font-bold mb-2" for="username">Job Title</label>
+                                                <input className="shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="" type="text" placeholder="Frontend Developer" />
+                                            </div>
+                                            <div class="mb-4">
+                                                <label className="block text-gray-700 text-sm font-bold mb-2" for="password">Hiring Manager</label>
+                                                <input className="shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="" type="text" placeholder="Nail Patel" />
+                                            </div>
+                                            <div class="mb-4">
+                                                <label className="block text-gray-700 text-sm font-bold mb-2" for="username">Department</label>
+                                                <input className="shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="" type="text" placeholder="Tech" />
+                                            </div>
+                                            <div class="mb-4">
+                                                <label className="block text-gray-700 text-sm font-bold mb-2" for="password">Team</label>
+                                                <input className="shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="" type="text" placeholder="Team-A" />
+                                            </div>
+                                            <div class="mb-4">
+                                                <label className="block text-gray-700 text-sm font-bold mb-2" for="username">Client</label>
+                                                <input className="shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="" type="text" placeholder="John Doe" />
+                                            </div>
+                                            <div class="mb-4">
+                                                <label className="block text-gray-700 text-sm font-bold mb-2" for="password">Priority</label>
+                                                <input className="shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="" type="text" placeholder="High" />
+                                            </div>
+                                            <div class="mb-4">
+                                                <label className="block text-gray-700 text-sm font-bold mb-2" for="password">Status</label>
+                                                <input className="shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="" type="text" placeholder="Open" />
+                                            </div>
+                                            <div class="mb-4">
+                                                <label className="block text-gray-700 text-sm font-bold mb-2" for="password">Stage</label>
+                                                <input className="shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="" type="text" placeholder="Initial" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div >
+                                                <label className="block text-gray-700 text-sm font-bold mb-2" >Upload your Job Description</label>
+                                                <div className='mt-4 h-[150px] border-dashed border-2 border-indigo-300'>
+                                                    <p className=' flex justify-center items-center px-3'>Drop or upload your file</p>
+                                                </div>
+                                            </div>
+                                            <div className='mt-6'>
+                                                <div className="">
+                                                    <label className="block text-gray-700 text-sm font-bold mb-2" for="message">Job Descripton</label>
+                                                    <div className=''>
+                                                        <textarea className="mt-2 h-[200px] shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" placeholder="Copy/paste your job description"></textarea>
+                                                    </div>
+                                                    <div className="flex justify-end gap-2 my-3 mr-6">
+                                                        <button class="text-green-600 font-bold py-3 px-4 rounded-full border-solid border-2 border-green-600" type="button">
+                                                            Cancel
+                                                        </button>
+                                                        <button className="bg-[#23B574] rounded-full text-white px-5 py-3">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div
+                                    className={toggleState === 2 ? "content  active-content" : "content"}
+                                >
+                                    <h2>Content 2</h2>
+                                    <hr />
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
+                                        voluptatum qui adipisci.
+                                    </p>
+                                </div>
+
+                                <div
+                                    className={toggleState === 3 ? "content  active-content" : "content"}
+                                >
+                                    <h2>Content 3</h2>
+                                    <hr />
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos sed
+                                        nostrum rerum laudantium totam unde adipisci incidunt modi alias!
+                                        Accusamus in quia odit aspernatur provident et ad vel distinctio
+                                        recusandae totam quidem repudiandae omnis veritatis nostrum
+                                        laboriosam architecto optio rem, dignissimos voluptatum beatae
+                                        aperiam voluptatem atque. Beatae rerum dolores sunt.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 }
