@@ -11,7 +11,7 @@ import group6 from "../assets/Group (6).png";
 
 const Dashboard = () => {
     return (
-        <div className='my-container bg-blue-100'>
+        <div className='my-container'>
             <NavBar></NavBar>
             <div className="lg:flex grid grid-cols-1 gap-2 lg:gap-0">
                 <div className="w-full lg:w-1/4 lg:min-h-screen bg-[#FEFEFF] p-4">
@@ -38,7 +38,7 @@ const Dashboard = () => {
                         <button className='w-56 p-2 bg-[#23B574] rounded-full'>Upgrade</button>
                     </div>
                 </div>
-                <div className="w-full lg:w-3/4 lg:overflow-hidden">
+                <div className="w-full lg:w-3/4 lg:overflow-hidden bg-blue-100">
                     <div className='font-poppins'>
                         <Outlet></Outlet>
                     </div>

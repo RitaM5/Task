@@ -32,7 +32,7 @@ const MyJobs = () => {
     return (
         <div className=''>
             <div className='p-8'>
-                <div className="navbar bg-base-100 rounded w-full overflow-x-auto">
+                <div className="navbar bg-base-100 rounded">
                     <div className="">
                         <div className="dropdown">
                             <label tabIndex={0} className="btn btn-ghost lg:hidden">
